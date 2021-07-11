@@ -1,0 +1,33 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "StringBuilder §strBuilder$ = new StringBuilder();",
+        "§strBuilder$.append(\"text\");",
+        "§strBuilder$.append(sensitiveData);",
+        "sensitiveData = \"clear\";",
+        "sensitiveData = §strBuilder$.toString();",
+        "{{ module }}"
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+            "reachable": true
+        }
+    ]
+}

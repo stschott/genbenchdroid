@@ -1,0 +1,8 @@
+{
+    "templateDir": "templates",
+    "moduleDir": "modules",
+    "outputDir": "output",
+    "projectName": "com.generated.app",
+    "androidSdkDir": "path/to/Android/Sdk",
+    "jdkDir": "path/to/jdk"
+}

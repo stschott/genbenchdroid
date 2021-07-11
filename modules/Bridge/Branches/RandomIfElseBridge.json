@@ -1,0 +1,42 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}",
+        "{{ globals }}"
+    ],
+    "module": [
+        "if (Math.random() > 0.5) {",
+        "  {{ module }}",
+        "} else {",
+        "  {{ module }}",
+        "}"
+    ],
+    "methods": [
+        "{{ methods }}",
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        },
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "type": "BRIDGE",
+    "imports": [
+        "import android.bluetooth.BluetoothAdapter;"
+    ],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "String §tempSensitive$ = sensitiveData;",
+        "sensitiveData = \"clear\";",
+        "String §status$ = \"Can't Detect\";",
+        "BluetoothAdapter §ba$ = BluetoothAdapter.getDefaultAdapter();",
+        "if (§ba$ == null) {",
+        "  §status$ = \"\\tBluetooth Adapter\";",
+        "} else {",
+        "  sensitiveData = §tempSensitive$;",
+        "}",
+        "{{ module }}",
+        "",
+        ""
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+            "reachable": true
+        }
+    ]
+}

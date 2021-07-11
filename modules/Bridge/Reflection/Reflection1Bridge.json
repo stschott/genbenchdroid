@@ -1,0 +1,47 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "try {",
+        "  String §dataStorage$ = sensitiveData;",
+        "  sensitiveData = \"clear\";",
+        "  §BaseClass$ §bc$ = (§BaseClass$) Class.forName(\"{{ project }}.§ConcreteClass$\").newInstance();",
+        "  §bc$.data = §dataStorage$;",
+        "  ",
+        "  sensitiveData = §bc$.data;",
+        "  {{ module }}",
+        "} catch (Exception §e$) {",
+        "  §e$.printStackTrace();",
+        "}"
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "public abstract class §BaseClass$ {",
+        "  public String data;",
+        "}",
+        "",
+        "public class §ConcreteClass$ extends §BaseClass$ {",
+        "  public String foo() {",
+        "    return data;",
+        "  }",
+        "}",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

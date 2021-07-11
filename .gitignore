@@ -1,0 +1,9 @@
+node_modules
+generated/.gradle
+generated/local.properties
+generated/app/build
+generated/app/src/main/java
+generated/app/src/main/AndroidManifest.xml
+generated/app/src/main/res/layout/*
+.gradle
+output

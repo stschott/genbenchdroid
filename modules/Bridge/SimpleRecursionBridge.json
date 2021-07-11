@@ -1,0 +1,41 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}",
+        ""
+    ],
+    "module": [
+        "String §recData$ = sensitiveData;",
+        "sensitiveData = \"clear\";",
+        "sensitiveData = §rec$(100, §recData$);",
+        "{{ module }}"
+    ],
+    "methods": [
+        "public static String §rec$(int §depth$, String §data$) {",
+        "  if (§depth$ > 0) {",
+        "    return §rec$(§depth$ - 1, §data$);",
+        "  } else {",
+        "    return §data$;",
+        "  }",
+        "}",
+        "{{ methods }}",
+        ""
+    ],
+    "classes": [
+        "{{ classes }}",
+        ""
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

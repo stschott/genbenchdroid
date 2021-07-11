@@ -1,0 +1,44 @@
+{
+    "type": "BRIDGE",
+    "imports": [
+        "import android.os.AsyncTask;"
+    ],
+    "globals": [
+        
+    ],
+    "module": [
+        "§CustomAsyncTask$ §async$ = new §CustomAsyncTask$(context);",
+        "§async$.execute(sensitiveData);"
+    ],
+    "methods": [
+        
+    ],
+    "classes": [
+        "public class §CustomAsyncTask$ extends AsyncTask<String, String, String> {",
+        "private Context context;",
+        "{{ globals }}",
+        "public §CustomAsyncTask$(Context con){",
+        "    context = con;",
+        "}",
+        "  protected String doInBackground(String... §params$) {",
+        "    String sensitiveData = §params$[0];",
+        "    {{ module }}",
+        "    return \"Done\";",
+        "  }",
+        "{{ methods }}",
+        "}",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "§CustomAsyncTask$",
+            "methodSignature": "java.lang.String doInBackground(java.lang.String[])",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

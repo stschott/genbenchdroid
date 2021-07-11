@@ -1,0 +1,37 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "private §A$ §b$ = new §A$();",
+        "{{ globals }}"
+    ],
+    "module": [
+        "§A$ §a$ = new §A$();",
+        "§a$.§b$ = sensitiveData;",
+        "sensitiveData = §b$.§b$;",
+        "{{ module }}",
+        "§b$ = §a$;"
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "class §A$ {",
+        "\tpublic String §b$ = \"Y\";",
+        "} ",
+        "",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": false,
+	        "reachable": true
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<answer>
+  <flows>
+    <flow>
+      <reference type="from">
+        <statement>
+          <statementfull/>
+          <statementgeneric>android.telephony.TelephonyManager: java.lang.String getDeviceId()</statementgeneric>
+          <linenumber>20</linenumber>
+        </statement>
+        <method>&lt;com.generated.app.MainActivity: void onCreate(android.os.Bundle)&gt;</method>
+        <classname>com.generated.app.MainActivity</classname>
+        <app>
+          <file/>
+          <hashes>
+            <hash type="MD5"/>
+            <hash type="SHA-1"/>
+            <hash type="SHA-256"/>
+          </hashes>
+        </app>
+      </reference>
+      <reference type="to">
+        <statement>
+          <statementfull/>
+          <statementgeneric>android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)</statementgeneric>
+          <linenumber>22</linenumber>
+        </statement>
+        <method>&lt;com.generated.app.MainActivity: void onCreate(android.os.Bundle)&gt;</method>
+        <classname>com.generated.app.MainActivity</classname>
+        <app>
+          <file/>
+          <hashes>
+            <hash type="MD5"/>
+            <hash type="SHA-1"/>
+            <hash type="SHA-256"/>
+          </hashes>
+        </app>
+      </reference>
+      <attributes>
+        <attribute>
+          <name>leaking</name>
+          <value>true</value>
+        </attribute>
+        <attribute>
+          <name>reachable</name>
+          <value>true</value>
+        </attribute>
+      </attributes>
+    </flow>
+  </flows>
+</answer>

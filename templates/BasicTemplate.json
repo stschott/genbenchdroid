@@ -1,0 +1,53 @@
+{
+    "template": [
+        "import android.app.Activity;",
+        "import android.os.Bundle;",
+        "import android.content.Context;",
+        "{{ imports }}",
+        "",
+        "   public class MainActivity extends Activity {",
+        "   private Context context = this;",
+        "   {{ globals }}",
+        "",
+        "   protected void onCreate(Bundle savedInstanceState) {",
+        "       super.onCreate(savedInstanceState);",
+        "       setContentView(R.layout.activity);",
+        "       String sensitiveData = \"clear\";",
+        "       {{ module }}",
+        "   }",
+        "",
+        "   {{ methods }}",
+        "",
+        "}",
+        "",
+        "{{ classes }}"
+    ],
+    "manifest": [
+        "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" package={{ project }}>",
+        "  {{ permissions }}",
+        "",
+        "  <application>",
+        "    <activity android:name=\".MainActivity\">",
+        "      <intent-filter>",
+        "        <action android:name=\"android.intent.action.MAIN\"/>",
+        "        <category android:name=\"android.intent.category.LAUNCHER\"/>",
+        "      </intent-filter>",
+        "    </activity>",
+        "    {{ components }}",
+        "",
+        "  </application>",
+        "</manifest>"
+    ],
+    "layout": [
+        "<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"",
+            "xmlns:tools=\"http://schemas.android.com/tools\"",
+            "android:layout_width=\"match_parent\"",
+            "android:layout_height=\"match_parent\">",
+            "",
+            "{{ views }}",
+            "",
+        "</RelativeLayout>"
+    ],
+    "className": "MainActivity",
+    "methodSignature": "void onCreate(android.os.Bundle)"
+}

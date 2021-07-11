@@ -1,0 +1,51 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "§Datacontainer$ §d1$ = new §Datacontainer$();",
+        "§d1$.setDescription(\"abc\");",
+        "§d1$.setSecret(sensitiveData);",
+        "sensitiveData = \"clear\";",
+        "sensitiveData = §d1$.getDescription();",
+        "{{ module }}"
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "public class §Datacontainer$ {",
+        "\tprivate String secret;",
+        "\tprivate String description;",
+        "",
+        "\tpublic String getSecret() {",
+        "\t\treturn secret;",
+        "\t}",
+        "\tpublic void setSecret(String secret) {",
+        "\t\tthis.secret = secret;",
+        "\t}",
+        "\tpublic String getDescription() {",
+        "\t\treturn description;",
+        "\t}",
+        "\tpublic void setDescription(String description) {",
+        "\t\tthis.description = description;",
+        "\t}",
+        "}",
+        "",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": false,
+	        "reachable": true
+        }
+    ]
+}

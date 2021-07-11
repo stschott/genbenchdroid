@@ -1,0 +1,56 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [],
+    "module": [
+        "§NextActivity$.§data$ = sensitiveData;"
+    ],
+    "methods": [],
+    "classes": [
+        "public class §NextActivity$ extends Activity {",
+        "   private Context context = this;",
+        "\tpublic static String §data$ = \"clear\";",
+        "        public static String §data2$ = \"clear\";",
+        "\t{{ globals }}",
+        "",
+        "\t@Override",
+        "\tprotected void onCreate(Bundle savedInstanceState) {",
+        "\t\tsuper.onCreate(savedInstanceState);",
+        "\t\tsetContentView(R.layout.activity);",
+        "\t}",
+        "",
+        "\tpublic void onPause(){",
+        "\t\tsuper.onPause();",
+        "\t\tString sensitiveData = §data2$;",
+        "\t\t{{ module }} ",
+        "\t}",
+        "",
+        "\tpublic void onResume(){",
+        "\t\tsuper.onResume();",
+        "\t\t§data2$ = §data$;",
+        "\t}",
+        "",
+        "\t{{ methods }}",
+        "}",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [
+        "    <activity android:name=\".§NextActivity$\">",
+        "      <intent-filter>",
+        "        <action android:name=\"android.intent.action.MAIN\"/>",
+        "        <category android:name=\"android.intent.category.LAUNCHER\"/>",
+        "      </intent-filter>",
+        "    </activity>"
+    ],
+    "views": [],
+    "flows": [
+        {
+            "className": "§NextActivity$",
+            "methodSignature": "void onCreate(android.os.Bundle)",
+            "statementSignature": "",
+            "leaking": true,
+            "reachable": true
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [],
+    "module": [
+        "§NextActivity$.§data$ = sensitiveData;"
+    ],
+    "methods": [],
+    "classes": [
+        "public class §NextActivity$ extends Activity {",
+        "   private Context context = this;",
+        "\tpublic static String §data$ = \"clear\";",
+        "\t{{ globals }}",
+        "",
+        "\t@Override",
+        "\tprotected void onCreate(Bundle savedInstanceState) {",
+        "\t\tsuper.onCreate(savedInstanceState);",
+        "\t\tsetContentView(R.layout.activity);",
+        "\t\tString sensitiveData = §data$;",
+        "\t\t{{ module }}",
+        "\t}",
+        "",
+        "\t{{ methods }}",
+        "}",
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [
+        "    <activity android:name=\".§NextActivity$\">",
+        "      <intent-filter>",
+        "        <action android:name=\"android.intent.action.MAIN\"/>",
+        "        <category android:name=\"android.intent.category.LAUNCHER\"/>",
+        "      </intent-filter>",
+        "    </activity>"
+    ],
+    "views": [],
+    "flows": [
+        {
+            "className": "§NextActivity$",
+            "methodSignature": "void onCreate(android.os.Bundle)",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "type": "BRIDGE",
+    "imports": [
+        "import android.view.View;"
+    ],
+    "globals": [
+        "private static String §imei$ = null;",
+        "{{ globals }}"
+    ],
+    "module": [
+        "§imei$ = sensitiveData;"
+    ],
+    "methods": [
+        "public void §sendMessage$(View §view$){",
+            "String sensitiveData = §imei$;",
+            "{{ module }}",
+        "}",
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [
+
+    ],
+    "components": [
+        
+    ],
+    "views": [
+        "<Button",
+        "android:id=\"@+id/§button$\"",
+        "android:layout_width=\"wrap_content\"",
+        "android:layout_height=\"wrap_content\"",
+        "android:layout_alignParentTop=\"true\"",
+        "android:layout_centerHorizontal=\"true\"",
+        "android:layout_marginTop=\"185dp\"",
+        "android:text=\"click me\"",
+        "android:onClick=\"§sendMessage$\"/>"
+    ],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "void §sendMessage$(android.view.View)",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

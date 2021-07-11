@@ -1,0 +1,31 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "String §leak$ = new StringBuffer().append(sensitiveData).toString();",
+        "sensitiveData = \"\";",
+        "sensitiveData = §leak$;",
+        "{{ module }}"
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+            "reachable": true
+        }
+    ]
+}

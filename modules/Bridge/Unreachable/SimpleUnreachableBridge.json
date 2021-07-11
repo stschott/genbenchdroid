@@ -1,0 +1,34 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "int §x$ = 4 * 20 + §foo$();",
+        "if (§x$ < 10) {",
+        "  {{ module }}",
+        "}"
+    ],
+    "methods": [
+        "protected int §foo$() {",
+        "  return 42;",
+        "}",
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": false,
+	        "reachable": false
+        }
+    ]
+}

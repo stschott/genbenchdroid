@@ -1,0 +1,37 @@
+{
+  "name": "genbenchdroid",
+  "version": "1.1.0",
+  "description": "GenBenchDroid is a tool that is able to automatically generate Android applications which can be used as benchmark cases for Android app analysis tool evaluation.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --verbose --silent"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "generated/*"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "dotenv/config"
+    ]
+  },
+  "keywords": [],
+  "author": "Stefan Schott",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "handlebars": "^4.7.7",
+    "js-beautify": "^1.13.0",
+    "nearley": "^2.20.1",
+    "xml-formatter": "^2.4.0",
+    "xmlbuilder2": "^2.4.0",
+    "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "dir-compare": "^3.3.0",
+    "dotenv": "^10.0.0",
+    "jest": "^27.0.6"
+  }
+}

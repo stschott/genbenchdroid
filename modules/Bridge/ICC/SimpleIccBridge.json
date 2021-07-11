@@ -1,0 +1,54 @@
+{
+    "type": "BRIDGE",
+    "imports": [
+        "import android.content.Intent;"
+    ],
+    "globals": [
+
+    ],
+    "module": [
+        "Intent §i$ = new Intent(context, §NextActivity$.class);",
+        "§i$.putExtra(\"leak\", sensitiveData);",
+        "context.startActivity(§i$);"
+    ],
+    "methods": [
+
+    ],
+    "classes": [
+        "public class §NextActivity$ extends Activity{",
+        "   private Context context = this;",
+        "  {{ globals }}",
+        "",
+        "  public void onCreate(Bundle savedInstanceState) {",
+        "    super.onCreate(savedInstanceState);",
+        "    setContentView(R.layout.activity);",
+        "    Intent §i$ = getIntent();",
+        "    String sensitiveData = §i$.getStringExtra(\"leak\");",
+        "    {{ module }}",
+        "  }",
+        "{{ methods }}",
+        "}",
+        "",
+        "{{ classes }}"
+    ],
+    "permissions": [
+
+    ],
+    "components": [
+        "    <activity android:name=\".§NextActivity$\">",
+        "      <intent-filter>",
+        "        <action android:name=\"android.intent.action.MAIN\"/>",
+        "        <category android:name=\"android.intent.category.LAUNCHER\"/>",
+        "      </intent-filter>",
+        "    </activity>"
+    ],
+    "flows": [
+        {
+            "className": "§NextActivity$",
+            "methodSignature": "void onCreate(android.os.Bundle)",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

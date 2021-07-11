@@ -1,0 +1,41 @@
+{
+    "type": "SINK",
+    "imports": [
+        "import android.telephony.SmsManager;"
+    ],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "int §val$ = Integer.valueOf(sensitiveData.substring(3,5));",
+        "String[] §arr$ = new String[§val$];",
+        "try {",
+        "  §arr$[42] = \"Hello World\";",
+        "} catch (ArrayIndexOutOfBoundsException §ex$) {",
+        "  SmsManager §sm$ = SmsManager.getDefault();",
+        "  §sm$.sendTextMessage(\"+49123\", null, \"Hello World\", null, null);",
+        "  {{ module }}",
+        "}",
+        ""
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [
+        "<uses-permission android:name=\"android.permission.SEND_SMS\"/>"
+    ],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)",
+            "leaking": true,
+            "reachable": true
+        }
+    ]
+}

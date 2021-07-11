@@ -1,0 +1,1 @@
+BasicTemplate ImeiSource ArrayExampleBridge SmsSink

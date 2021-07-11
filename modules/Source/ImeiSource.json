@@ -1,0 +1,32 @@
+{
+    "type": "SOURCE",
+    "imports": [
+        "import android.telephony.TelephonyManager;"
+    ],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "TelephonyManager §tm$ = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);",
+        "sensitiveData = §tm$.getDeviceId();",
+        "{{ module }}"
+    ],
+    "methods": [
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [
+        "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>"
+    ],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "android.telephony.TelephonyManager: java.lang.String getDeviceId()",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

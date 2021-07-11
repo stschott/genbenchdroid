@@ -1,0 +1,51 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "String §result$ = §obfuscateData$(sensitiveData);",
+        "sensitiveData = \"clear\";",
+        "sensitiveData = §result$;",
+        "{{ module }}"
+    ],
+    "methods": [
+        "private String §obfuscateData$(String data){",
+        "\t\tString result = \"\";",
+        "\t\t",
+        "\t\tfor(char c : data.toCharArray()){",
+        "\t\t\tswitch(c){",
+        "\t\t\t\tcase '0' : result += 'a'; break;",
+        "\t\t\t\tcase '1' : result += 'b'; break;",
+        "\t\t\t\tcase '2' : result += 'c'; break;",
+        "\t\t\t\tcase '3' : result += 'd'; break;",
+        "\t\t\t\tcase '4' : result += 'e'; break;",
+        "\t\t\t\tcase '5' : result += 'f'; break;",
+        "\t\t\t\tcase '6' : result += 'g'; break;",
+        "\t\t\t\tcase '7' : result += 'h'; break;",
+        "\t\t\t\tcase '8' : result += 'i'; break;",
+        "\t\t\t\tcase '9' : result += 'j'; break;",
+        "\t\t\t\tdefault : System.err.println(\"Problem in obfuscateData for character: \" + c);",
+        "\t\t\t}",
+        "\t\t}",
+        "\t\treturn result;",
+        "\t}",
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}

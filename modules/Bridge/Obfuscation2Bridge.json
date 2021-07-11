@@ -1,0 +1,48 @@
+{
+    "type": "BRIDGE",
+    "imports": [],
+    "globals": [
+        "{{ globals }}"
+    ],
+    "module": [
+        "String §result$ = §copyData$(sensitiveData);",
+        "sensitiveData = \"clear\";",
+        "sensitiveData = §result$;",
+        "{{ module }}"
+    ],
+    "methods": [
+        "private String §copyData$(String data){",
+        "\t\t//ASCII values for integer: 48-57",
+        "\t\tInteger[] numbers = new Integer[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,",
+        "\t\t\t\t20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,",
+        "\t\t\t\t40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57};",
+        "\t\t",
+        "\t\tchar[] dataAsChar = data.toCharArray();",
+        "\t\t",
+        "\t\tchar[] newOldData = new char[dataAsChar.length];",
+        "\t\t",
+        "\t\tfor(int i = 0; i < dataAsChar.length; i++){",
+        "\t\t\tint tmp = numbers[(int)dataAsChar[i]];",
+        "\t\t\tnewOldData[i] = (char)tmp;",
+        "\t\t}",
+        "\t\t",
+        "\t\treturn new String (newOldData);",
+        "\t}",
+        "{{ methods }}"
+    ],
+    "classes": [
+        "{{ classes }}"
+    ],
+    "permissions": [],
+    "components": [],
+    "views": [],
+    "flows": [
+        {
+            "className": "",
+            "methodSignature": "",
+            "statementSignature": "",
+            "leaking": true,
+	        "reachable": true
+        }
+    ]
+}
