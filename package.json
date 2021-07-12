@@ -1,10 +1,21 @@
 {
   "name": "genbenchdroid",
   "version": "1.1.0",
-  "description": "GenBenchDroid is a tool that is able to automatically generate Android applications which can be used as benchmark cases for Android app analysis tool evaluation.",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --verbose --silent"
+    "test": "jest --verbose",
+    "test1": "node app -c \"BasicTemplate ImeiSource ArrayExampleBridge SmsSink\"",
+    "test1u": "node app -c \"BasicTemplate ImeiSource ArrayExampleBridge SmsSink\" --uncompiled -u",
+    "test2": "node app -c \"BasicTemplate ImeiSource SimpleIccBridge SmsSink\"",
+    "test2u": "node app -c \"BasicTemplate ImeiSource SimpleIccBridge SmsSink\" --uncompiled -u",
+    "test3": "node app -c \"BasicTemplate ImeiSource RandomIfElseBridge ( SmsSink ) ( LogSink )\"",
+    "test3u": "node app -c \"BasicTemplate ImeiSource RandomIfElseBridge ( SmsSink ) ( LogSink )\" --uncompiled -u",
+    "test4u": "node app -c \"BasicTemplate RandomIfElseBridge ( ImeiSource ) ( LogSink )\" --uncompiled -u",
+    "test4": "node app -c \"BasicTemplate RandomIfElseBridge ( ImeiSource ArrayBridge ListBridge PauseResumeLifecycleBridge AsyncTaskBridge SmsSink ) ( RandomIfElseBridge ( ImeiSource AppendToStringBridge ArrayBridge ListBridge PauseResumeLifecycleBridge AsyncTaskBridge LogSink ) ( RandomIfElseBridge ( ImeiSource Reflection1Bridge SmsSink ) ( RandomIfElseBridge ( ImeiSource AppendToStringBridge ArrayBridge ListBridge PauseResumeLifecycleBridge AsyncTaskBridge LogSink ) ( ImeiSource SimpleSanitizationBridge SmsSink ) ) ) )\" -u",
+    "test5": "node app -c \"BasicTemplate ArrayExampleBridge RandomIfElseBridge ( ImeiSource ArrayBridge ListBridge PauseResumeLifecycleBridge AsyncTaskBridge SmsSink ) ( RandomIfElseBridge ( ImeiSource AppendToStringBridge ArrayBridge ListBridge PauseResumeLifecycleBridge AsyncTaskBridge LogSink ) ( RandomIfElseBridge ( ImeiSource Reflection1Bridge SmsSink ) ( RandomIfElseBridge ( ImeiSource AppendToStringBridge ArrayBridge ListBridge PauseResumeLifecycleBridge AsyncTaskBridge LogSink ) ( ImeiSource SimpleSanitizationBridge SmsSink ) ) ) )\" -u",
+    "test6u": "node app -c \"BasicTemplate ImeiSource SimpleSanitizationBridge ImeiSource SmsSink\" --uncompiled -u",
+    "fuzzTest": "nodemon app -f"
   },
   "nodemonConfig": {
     "ignore": [
