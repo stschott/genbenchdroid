@@ -3,6 +3,6 @@
     "moduleDir": "modules",
     "outputDir": "output",
     "projectName": "com.generated.app",
-    "androidSdkDir": "C:/Users/Stefan/AppData/Local/Android/Sdk",
-    "jdkDir": "C:/Program Files/Java/jdk-15"
+    "androidSdkDir": "path/to/Android/Sdk",
+    "jdkDir": "path/to/jdk"
 }
