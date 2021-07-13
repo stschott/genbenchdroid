@@ -11,15 +11,15 @@ Alongside the application, GenBenchDroid also generates a corresponding ground-t
 4. [Extension](#extension)
 5. [Build Configuration](#build-configuration)
 6. [List of all available command line parameters](#list-of-all-available-command-line-parameters)
+7. [More information](#more-information)
 
-
-## Requirements
+# Requirements
 The following applications need to be installed to use GenBenchDroid:
 - [Node.js](https://nodejs.org/en/) (14.15 or higher)
 - [Android SDK](https://developer.android.com/studio) (shipped with Android Studio)
 - [Java Development Kit](https://www.oracle.com/de/java/technologies/javase-jdk15-downloads.html) 
 
-## Configuration
+# Configuration
 GenBenchDroid has to be confiugred before its usage. 
 This configuration has to be performed inside the **config.json** file inside GenBenchDroid's root directory. 
 The directories containing the templates, modules and outputs have to be specified. 
@@ -37,7 +37,7 @@ Example Configuration:
 }
 ```
 
-## Usage
+# Usage
 To install all required dependencies, at first the following command has to be executed inside the directory containing GenBenchDroid:
 
 ```
@@ -52,10 +52,10 @@ chmod -R 755 .
 ```
 -->
 
-### Usage Modes
+## Usage Modes
 GenBenchDroid offers two different usage modes: (1) the manual mode and (2) the fuzzing mode.
 
-#### Manual Mode
+### Manual Mode
 The manual mode can be used to generate a fully specified benchmark case.
 The following command can be used to generate a benchmark case:
 
@@ -89,7 +89,7 @@ Each branch may contain arbitrarily many nested branches.
 
 Generated benchmark cases and their corresponding ground-truths can be found in the directory that has been specified inside the **config.json** file.
 
-#### Fuzzing Mode
+### Fuzzing Mode
 GenBenchDroid's fuzzing mode can be used to generate random applications.
 The fuzzing mode can be executed with the following command:
 ```
@@ -121,7 +121,7 @@ node app -f --max 10 --priority SmsSink 2 Reflection 5
 ```
 This command generates a random application containing at most ten modules with the module **SmsSink** having a doubled chance and modules containing **Reflection** having a five times higher chance to be part of the application than all other modules.
 
-## Extension
+# Extension
 GenBenchDroid can easily be extended by creating new templates and modules.
 In order to easily create a new template or module, the [GenBenchDroid-Editor](https://git.cs.uni-paderborn.de/sschott/genbenchdroid-editor) can be used.
 
@@ -146,12 +146,12 @@ node app --compile
 
 Afterwards the newly created templates and modules can be used by GenBenchDroid.
 
-## Build Configuration
+# Build Configuration
 GenBenchDroid uses [Gradle](https://gradle.org/) to build Android applications.
 The configuration used by Gradle (Target Android SDK Version, etc.) can be changed in the to Gradle belonging files inside the **generated** directory.
 More information about the configuration of Gradle can be found [here](https://developer.android.com/studio/build).
 
-## List of all available command line parameters
+# List of all available command line parameters
 |Parameter                      | Functionality |
 | ----------------------------- | ------------- |
 | --help                        | Opens up a help menu that shows a list of all available parameters and usage examples |
@@ -173,3 +173,5 @@ Each of these parameters can only be used in combination to the **--configuratio
 | <nobr>--ignore *string[]*</nobr> | **Fuzzing mode only** <br/> Specifies (sub)strings that cannot be contained inside the TMC of the generated application |
 | <nobr>--priority *string[]*,</nobr> <br/><nobr>--priorities *string[]*</nobr>, <br/><nobr>--prioritize *string[]*</nobr>, <br/>--prio *string[]*, <br/>-p *string[]* | **Fuzzing mode only** <br/> Specifies (sub)strings that have a higher priority to be selected for the generated application <br/> Priorities have to be specified in the following way: *string1 prio1 string2 prio2*, where each string has the following priority |
 
+# More Information
+For more information about GenBenchDroid and the topic of Android App Analysis Benchmark Case Generation check out my [Master's thesis](https://ris.uni-paderborn.de/record/22304).
