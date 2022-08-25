@@ -123,7 +123,7 @@ This command generates a random application containing at most ten modules with 
 
 # Extension
 GenBenchDroid can easily be extended by creating new templates and modules.
-In order to easily create a new template or module, the [GenBenchDroid-Editor](https://git.cs.uni-paderborn.de/sschott/genbenchdroid-editor) can be used.
+In order to easily create a new template or module, the [GenBenchDroid-Editor](https://github.com/stschott/genbenchdroid-editor) can be used.
 
 Once the new template/module has been created, its file name has to be appended to the grammar in the file **grammar.</span>ne**, inside the **grammar** directory, at the right location.
 A new template has to be appended to the **template** symbol, while a new module has to be appended to the **module** symbol.
