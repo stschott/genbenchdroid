@@ -4,5 +4,11 @@
     "outputDir": "output",
     "projectName": "com.generated.app",
     "androidSdkDir": "path/to/Android/Sdk",
-    "jdkDir": "path/to/Java/jdk-15"
+    "jdkDir": "path/to/jdk",
+    "forbidden": [
+        {
+            "from": "AsyncTaskBridge",
+            "to": "ButtonCallbackBridge"
+        }
+    ]
 }

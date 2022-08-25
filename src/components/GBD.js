@@ -23,7 +23,8 @@ class GBD {
             this._duplicateFileCheck();
             
             // get TMC
-            const fuzzer = new Fuzzer('../../grammar/grammar');
+            const forbidden = new ConfigHandler().get('forbidden');
+            const fuzzer = new Fuzzer('../../grammar/grammar', forbidden);
             const { tmc, tmcString } = this._getTMC(this.argv, fuzzer);
             
             // load template from TMC
@@ -45,6 +46,7 @@ class GBD {
             const fp = new FlowProcessor(processedTemplate);
             fp.processFlows(moduleTree);
             const sourceSinkConnections = fp.getSourceSinkConnections(moduleTree);
+            // console.log(sourceSinkConnections);
             const allConnections = fp.getAllConnections(moduleTree);
 
             // finish source generation and obtain source contents before writting to file
@@ -59,7 +61,9 @@ class GBD {
 
             // check for uncompiled flag and either compile or just move source files
             const successCb = () => this._log('Benchmark case has been successfully generated');
-            await this._finishGeneration(this.argv.uncompiled, () => fg.finishCompilation(sourceSinkConnections, allConnections, linenumberLookup, this.argv.uncompiled, successCb));  
+            await this._finishGeneration(this.argv.uncompiled, 
+                    () => fg.finishCompilation(sourceSinkConnections, allConnections, linenumberLookup, this.argv.uncompiled, this.argv.directOutput, successCb)
+                );  
         } catch (err) {
             const errorHandler = new ErrorHandler();
             errorHandler.handleError(err);

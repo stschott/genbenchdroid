@@ -5,15 +5,19 @@
     ],
     "globals": [
         "private static String §imei$ = null;",
+        "private static boolean §buttonEnabled$ = false;",
         "{{ globals }}"
     ],
     "module": [
-        "§imei$ = sensitiveData;"
+        "§imei$ = sensitiveData;",
+        "§buttonEnabled$ = true;"
     ],
     "methods": [
         "public void §sendMessage$(View §view$){",
-            "String sensitiveData = §imei$;",
-            "{{ module }}",
+            "if (§buttonEnabled$){",
+                "String sensitiveData = §imei$;",
+                "{{ module }}",
+            "}",
         "}",
         "{{ methods }}"
     ],

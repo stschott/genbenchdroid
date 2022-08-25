@@ -18,7 +18,7 @@ const cleanup = (filePath) => {
     try {
         fs.accessSync(filePath, fs.constants.F_OK);
         if (fs.lstatSync(filePath).isDirectory()) {
-            fs.rmdirSync(filePath, { recursive: true });
+            fs.rmSync(filePath, { recursive: true });
         } else {
             fs.unlinkSync(filePath);
         }

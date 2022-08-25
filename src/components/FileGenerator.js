@@ -39,10 +39,10 @@ class FileGenerator {
         });
     }
 
-    async finishCompilation(taintFlows, fullFlows, linenumberLookup, uncompiled = false, cb = () => {}) {
+    async finishCompilation(taintFlows, fullFlows, linenumberLookup, uncompiled = false, directOutput = false, cb = () => {}) {
         const date = new Date();
         const outputDir = new ConfigHandler().get('outputDir');
-        const finalOutputDir = `${outputDir}/${date.getFullYear()}_${date.getMonth()+1}_${date.getDate()}_${date.getTime()}`;
+        const finalOutputDir = directOutput ? outputDir : `${outputDir}/${date.getFullYear()}_${date.getMonth()+1}_${date.getDate()}_${date.getTime()}`;
         let apkFileName = `${finalOutputDir}/generated-app.apk`;
 
         // copy compiled APK file to the specified output directory
@@ -59,7 +59,6 @@ class FileGenerator {
 
         // generate ground-truth
         const groundTruthContent = await this._generateGroundTruthContent(taintFlows, apkFileName, linenumberLookup);
-        
         writeFileWithContent(`${finalOutputDir}/ground-truth.xml`, groundTruthContent);
 
         // generate full flow ground-truth

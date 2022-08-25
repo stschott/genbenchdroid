@@ -3,14 +3,16 @@ const Unparse = require('nearley/lib/unparse');
 const ConfigError = require('./Errors/ConfigError');
 
 class Fuzzer {
+    forbidden = [];
     parser = null;
     grammarRaw = null;
     grammar = null;
 
-    constructor(pathToGrammar) {
+    constructor(pathToGrammar, forbidden) {
         this.grammarRaw = require(pathToGrammar);
         this.grammar = Grammar.fromCompiled(this.grammarRaw);
         this.parser = new Parser(this.grammar);
+        this.forbidden = forbidden;
     }
 
     verify(string) {
@@ -56,6 +58,10 @@ class Fuzzer {
             });
 
             if (!configContainsNoUndesiredString) {
+                continue;
+            }
+
+            if(this._isForbidden(config)) {
                 continue;
             }
 
@@ -199,7 +205,37 @@ class Fuzzer {
         });
         return containsFlow;
     }
-    
+
+    // Check module combinations that are forbidden in the config
+    _isForbidden(config) {
+        const forbiddenLookup = {}; 
+        
+        // Create a lookup of forbidden pairings
+        this.forbidden.forEach(rule => forbiddenLookup[rule.from.toLowerCase()] = rule.to.toLowerCase());
+
+        for (let i = 0; i < config.length; i++) {
+            const lowerCaseModule1 = config[i].toLowerCase();
+
+            if (!forbiddenLookup[lowerCaseModule1]) continue;
+
+            const config2 = config.slice(i + 1, config.length);
+            let parenCount = 0;
+            for (let j = 0; j < config2.length; j++) {
+                const lowerCaseModule2 = config2[j].toLowerCase();
+                if (lowerCaseModule2 === forbiddenLookup[lowerCaseModule1]) {
+                    return true;
+                } else if (lowerCaseModule2 === '(') {
+                    parenCount++;
+                } else if (lowerCaseModule2 === ')') {
+                    parenCount--;
+                    if (parenCount < 0) break;
+                }
+            }
+
+
+        }
+        return false;
+    }
 }
 
 module.exports = Fuzzer;

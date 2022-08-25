@@ -76,6 +76,11 @@ const initCliOptions = () => {
         .example('$0 --fuzz --unobfuscated', 'Generates a random application with an unobfuscated variable containing the sensitive data')
         .alias('unobfuscated', 'u')
 
+        // --directOutput, -d
+        .usage('Usage: $0 --directOutput [boolean]')
+        .describe('directOutput', 'Outputs the generated files directly in the output directory (Overwrittes previous with this option generated files)')
+        .example('$0 --fuzz --directOutput', 'Generates an application and places all its files directly in the output directory')
+        .alias('directOutput', 'd')
 
         .argv;
     return argv;

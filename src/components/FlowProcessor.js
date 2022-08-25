@@ -43,16 +43,27 @@ class FlowProcessor {
     
     getSourceSinkConnections(ref, connections = [], sources = [], idx = 0) {
         let currentSources = [...sources];
-        if (!!ref) {
+        if (!!ref && ref.module != 'empty') {
+            // sanitization
             if (currentSources.length > 0 && !ref.flows[0].leaking) {
-                currentSources[currentSources.length - 1].leaking = false;
+                // need to create new object, as manipulation of old one will change module in other branches
+                currentSources[currentSources.length - 1] = {
+                    ...currentSources[currentSources.length - 1],
+                    leaking: false
+                };
             }
+
             if (ref.type && ref.type.toLowerCase() === 'source') {
                 currentSources.push({ ...ref.flows[0], id: ref.id });
             } else if (ref.type && ref.type.toLowerCase() === 'sink' && currentSources.length > 0) {
                 // changed idx to 0
-                currentSources.forEach(source => {
-                    connections.push({ from: source, to: { ...ref.flows[0], id: ref.id, leaking: ref.flows[0].leaking && source.leaking } });
+                currentSources.forEach((source, id) => {
+                    // only the last source of the branch leaks data
+                    let pathLeaking = false;
+                    if (id === (currentSources.length - 1)) {
+                        pathLeaking = ref.flows[0].leaking && source.leaking;
+                    } 
+                    connections.push({ from: source, to: { ...ref.flows[0], id: ref.id, leaking: pathLeaking } });
                 });
             }
 
@@ -60,7 +71,7 @@ class FlowProcessor {
                 this.getSourceSinkConnections(child, connections, currentSources, idx);
             });
         }
-
+        
         return connections;
     }
 
@@ -69,15 +80,23 @@ class FlowProcessor {
             if (parentFlow && ref.flows && ref.flows.length > 0) {
                 ref.flows.forEach(flow => {
                     if (flow.statementSignature) {
-                        connections.push({ from: parentFlow, to: { ...flow, id: ref.id, leaking: parentFlow.leaking && flow.leaking } });
+                        // only the last source of the branch leaks data
+                        let pathLeaking = parentFlow.leaking && flow.leaking;
+                        if (ref.type.toLowerCase() === 'source') {
+                            pathLeaking = false;
+                        }
+                        connections.push({ from: parentFlow, to: { ...flow, id: ref.id, leaking: pathLeaking } });
                     }
                 });
             }
 
             ref.children.forEach((child, idx) => {
-                const parentFlowNew = ref.flows[idx].statementSignature ? { ...ref.flows[idx], id: ref.id } : parentFlow;
+                let parentFlowNew = ref.flows[idx].statementSignature ? { ...ref.flows[idx], id: ref.id } : parentFlow;
                 if (parentFlow && ref.type.toLowerCase() !== 'source') {
-                    parentFlowNew.leaking = parentFlow.leaking && ref.flows[idx].leaking;
+                    parentFlowNew = {
+                        ...parentFlowNew,
+                        leaking: parentFlow.leaking && ref.flows[idx].leaking
+                    };
                 }
                 
                 this.getAllConnections(child, connections, parentFlowNew);
