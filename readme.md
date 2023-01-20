@@ -174,4 +174,4 @@ Each of these parameters can only be used in combination to the **--configuratio
 | <nobr>--priority *string[]*,</nobr> <br/><nobr>--priorities *string[]*</nobr>, <br/><nobr>--prioritize *string[]*</nobr>, <br/>--prio *string[]*, <br/>-p *string[]* | **Fuzzing mode only** <br/> Specifies (sub)strings that have a higher priority to be selected for the generated application <br/> Priorities have to be specified in the following way: *string1 prio1 string2 prio2*, where each string has the following priority |
 
 # More Information
-For more information about GenBenchDroid and the topic of Android App Analysis Benchmark Case Generation check out my [Master's thesis](https://ris.uni-paderborn.de/record/22304).
+For more information about GenBenchDroid and the topic of Benchmark Fuzzing for Android Taint Analyses check out this [paper](https://doi.org/10.1109/SCAM55253.2022.00007).
